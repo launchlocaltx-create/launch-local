@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started — Launch Local TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B1F3A;
+    --blue: #1A56DB;
+    --blue-light: #2E6FF3;
+    --gold: #F5A623;
+    --white: #FFFFFF;
+    --gray-50: #F8F9FB;
+    --gray-100: #EEF1F6;
+    --gray-200: #D8DDE8;
+    --gray-400: #8D97AB;
+    --gray-600: #4A5568;
+    --gray-800: #1A202C;
+    --success: #0F6E56;
+    --success-bg: #E1F5EE;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-800);
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo svg { width: 32px; height: 32px; }
+
+  .nav-wordmark {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-wordmark span { color: var(--gold); }
+
+  .nav-back {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-400);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--white); }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 48px 24px 56px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(245,166,35,0.15);
+    border: 1px solid rgba(245,166,35,0.3);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 6vw, 42px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    max-width: 440px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* STEPS */
+  .steps {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-top: 36px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .step.active { color: var(--white); }
+
+  .step-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .step.active .step-num {
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  .step-divider {
+    width: 24px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 0 4px;
+  }
+
+  /* MAIN LAYOUT */
+  .main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* FORM CARD */
+  .form-card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .form-card-header {
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .form-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .form-card-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .form-card-header p {
+    font-size: 13px;
+    color: var(--gray-400);
+  }
+
+  .form-card-body { padding: 24px 28px; }
+
+  /* FORM FIELDS */
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .field-row.single { grid-template-columns: 1fr; }
+
+  @media (max-width: 520px) {
+    .field-row { grid-template-columns: 1fr; }
+  }
+
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+
+  .field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-600);
+    letter-spacing: 0.01em;
+  }
+
+  .field label .req {
+    color: var(--blue);
+    margin-left: 2px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder { color: var(--gray-400); }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--blue);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(26,86,219,0.1);
+  }
+
+  .field textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+
+  .select-wrap { position: relative; }
+
+  .select-wrap select { padding-right: 36px; cursor: pointer; }
+
+  .select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--gray-400);
+    pointer-events: none;
+  }
+
+  /* RADIO/CHECKBOX GROUPS */
+  .radio-group, .check-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .radio-group.three-col { grid-template-columns: 1fr 1fr 1fr; }
+
+  @media (max-width: 520px) {
+    .radio-group, .check-group { grid-template-columns: 1fr; }
+    .radio-group.three-col { grid-template-columns: 1fr 1fr; }
+  }
+
+  .radio-option, .check-option {
+    position: relative;
+  }
+
+  .radio-option input, .check-option input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .radio-option label, .check-option label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+    transition: all 0.15s;
+    user-select: none;
+  }
+
+  .radio-option label::before, .check-option label::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--gray-200);
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+
+  .check-option label::before { border-radius: 4px; }
+
+  .radio-option input:checked + label,
+  .check-option input:checked + label {
+    background: rgba(26,86,219,0.06);
+    border-color: var(--blue);
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .radio-option input:checked + label::before,
+  .check-option input:checked + label::before {
+    background: var(--blue);
+    border-color: var(--blue);
+    box-shadow: inset 0 0 0 3px var(--white);
+  }
+
+  .check-option input:checked + label::before {
+    box-shadow: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* PACKAGE CARDS */
+  .package-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (max-width: 520px) { .package-grid { grid-template-columns: 1fr; } }
+
+  .package-option { position: relative; }
+
+  .package-option input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .package-option label {
+    display: block;
+    padding: 14px 16px;
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .package-option input:checked + label {
+    background: rgba(26,86,219,0.06);
+    border-color: var(--blue);
+  }
+
+  .pkg-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .pkg-price {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+
+  .pkg-desc {
+    font-size: 12px;
+    color: var(--gray-400);
+    line-height: 1.4;
+  }
+
+  .pkg-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    background: rgba(245,166,35,0.15);
+    color: #8B5E00;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* SUBMIT */
+  .submit-section {
+    padding: 0 28px 28px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 16px 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: -0.2px;
+  }
+
+  .submit-btn:hover { background: var(--blue-light); }
+  .submit-btn:active { transform: scale(0.99); }
+
+  .submit-btn svg { width: 18px; height: 18px; }
+
+  .submit-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* SUCCESS STATE */
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 60px 28px;
+  }
+
+  .success-state.show { display: block; }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--success-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .success-icon svg { width: 32px; height: 32px; color: var(--success); }
+
+  .success-state h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .success-state p {
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    max-width: 380px;
+    margin: 0 auto 24px;
+  }
+
+  .success-timeline {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .timeline-item strong { font-size: 13px; font-weight: 700; color: var(--navy); display: block; }
+  .timeline-item span { font-size: 12px; color: var(--gray-400); }
+
+  /* TRUST BAR */
+  .trust-bar {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-400);
+  }
+
+  .trust-item svg { width: 14px; height: 14px; color: var(--blue); }
+
+  /* DIVIDER */
+  .field-divider {
+    border: none;
+    border-top: 1px solid var(--gray-100);
+    margin: 20px 0;
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <span style="font-size:26px;line-height:1">🚀</span>
+    <span class="nav-wordmark">Launch<span>Local</span> TX</span>
+  </a>
+  <a href="/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 3L5 7L8.5 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to site
+  </a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5A623" stroke-width="1.5"/><path d="M6 3.5V6.5L7.5 8" stroke="#F5A623" stroke-width="1.2" stroke-linecap="round"/></svg>
+    5–7 Day Delivery
+  </div>
+  <h1>Let's build your<br><span>online presence.</span></h1>
+  <p>Fill this out once — we handle everything else. Most clients are live within a week.</p>
+
+  <div class="steps">
+    <div class="step active">
+      <div class="step-num">1</div>
+      Fill out form
+    </div>
+    <div class="step-divider"></div>
+    <div class="step">
+      <div class="step-num">2</div>
+      We review & reach out
+    </div>
+    <div class="step-divider"></div>
+    <div class="step">
+      <div class="step-num">3</div>
+      You're live
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <form id="intakeForm" action="https://formspree.io/f/xvzlzlqg" method="POST">
+
+    <!-- CONTACT INFO -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-card-icon">👤</div>
+        <div>
+          <h2>Your info</h2>
+          <p>Who we'll be working with</p>
+        </div>
+      </div>
+      <div class="form-card-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Full name <span class="req">*</span></label>
+            <input type="text" name="full_name" placeholder="John Smith" required>
+          </div>
+          <div class="field">
+            <label>Phone number <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="(430) 000-0000" required>
+          </div>
+        </div>
+        <div class="field">
+          <label>Email address <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="you@yourbusiness.com" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUSINESS INFO -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-card-icon">🏢</div>
+        <div>
+          <h2>Your business</h2>
+          <p>Tell us about what you do</p>
+        </div>
+      </div>
+      <div class="form-card-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Business name <span class="req">*</span></label>
+            <input type="text" name="business_name" placeholder="Smith's Lawn Care" required>
+          </div>
+          <div class="field">
+            <label>City / Town <span class="req">*</span></label>
+            <input type="text" name="city" placeholder="Canton, TX" required>
+          </div>
+        </div>
+        <div class="field">
+          <label>Business type / industry <span class="req">*</span></label>
+          <div class="select-wrap">
+            <select name="business_type" required>
+              <option value="" disabled selected>Select your industry</option>
+              <option>Contractor / Construction</option>
+              <option>Lawn Care / Landscaping</option>
+              <option>Cleaning / Pressure Washing</option>
+              <option>Painting / Staining</option>
+              <option>Plumbing / HVAC / Electrical</option>
+              <option>Restaurant / Food</option>
+              <option>Retail / Shop</option>
+              <option>Salon / Barber / Beauty</option>
+              <option>Auto / Mechanic</option>
+              <option>Trucking / Hauling</option>
+              <option>Real Estate</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Describe your business <span class="req">*</span></label>
+          <textarea name="business_description" placeholder="What do you do, who do you serve, what makes you different from competitors?" required></textarea>
+        </div>
+        <div class="field">
+          <label>Services you offer <span class="req">*</span></label>
+          <textarea name="services" placeholder="List your main services — e.g. Pressure washing, deck staining, fence restoration, gutter cleaning..." style="min-height: 80px;" required></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- PACKAGE SELECTION -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-card-icon">📦</div>
+        <div>
+          <h2>Choose your package</h2>
+          <p>Not sure? We can help you decide.</p>
+        </div>
+      </div>
+      <div class="form-card-body">
+        <div class="package-grid">
+
+          <div class="package-option">
+            <input type="radio" name="package" id="pkg_starter" value="Starter — $300">
+            <label for="pkg_starter">
+              <div class="pkg-name">Starter</div>
+              <div class="pkg-price">$300</div>
+              <div class="pkg-desc">Google Business Profile setup, optimization & review strategy</div>
+            </label>
+          </div>
+
+          <div class="package-option">
+            <input type="radio" name="package" id="pkg_foundation" value="Foundation — $800" checked>
+            <label for="pkg_foundation">
+              <div class="pkg-badge">Most Popular</div>
+              <div class="pkg-name">Foundation</div>
+              <div class="pkg-price">$800</div>
+              <div class="pkg-desc">Website + Google Business + Facebook page + domain setup</div>
+            </label>
+          </div>
+
+          <div class="package-option">
+            <input type="radio" name="package" id="pkg_full" value="Full Launch — $1,500">
+            <label for="pkg_full">
+              <div class="pkg-name">Full Launch</div>
+              <div class="pkg-price">$1,500</div>
+              <div class="pkg-desc">Everything in Foundation + logo + business cards + brand guidelines</div>
+            </label>
+          </div>
+
+          <div class="package-option">
+            <input type="radio" name="package" id="pkg_monthly" value="Monthly Management — $150-250/mo">
+            <label for="pkg_monthly">
+              <div class="pkg-name">Monthly</div>
+              <div class="pkg-price">$150–250<span style="font-size:13px;font-weight:500">/mo</span></div>
+              <div class="pkg-desc">Ongoing posts, review campaigns & website updates</div>
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- CURRENT SITUATION -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-card-icon">🔍</div>
+        <div>
+          <h2>What you already have</h2>
+          <p>Helps us know where to start</p>
+        </div>
+      </div>
+      <div class="form-card-body">
+
+        <div class="field">
+          <label>Do you have a domain name already? <span class="req">*</span></label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" name="has_domain" id="domain_yes" value="Yes">
+              <label for="domain_yes">Yes, I have one</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" name="has_domain" id="domain_no" value="No" checked>
+              <label for="domain_no">No, need one</label>
+            </div>
+          </div>
+        </div>
+
+        <hr class="field-divider">
+
+        <div class="field">
+          <label>Do you have a logo? <span class="req">*</span></label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" name="has_logo" id="logo_yes" value="Yes">
+              <label for="logo_yes">Yes, I have one</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" name="has_logo" id="logo_no" value="No" checked>
+              <label for="logo_no">No, need one</label>
+            </div>
+          </div>
+        </div>
+
+        <hr class="field-divider">
+
+        <div class="field">
+          <label>Do you have a Google Business Profile?</label>
+          <div class="radio-group three-col">
+            <div class="radio-option">
+              <input type="radio" name="has_gbp" id="gbp_yes" value="Yes, set up">
+              <label for="gbp_yes">Yes, set up</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" name="has_gbp" id="gbp_partial" value="Claimed but not set up">
+              <label for="gbp_partial">Claimed only</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" name="has_gbp" id="gbp_no" value="No" checked>
+              <label for="gbp_no">No</label>
+            </div>
+          </div>
+        </div>
+
+        <hr class="field-divider">
+
+        <div class="field">
+          <label>Business colors or branding preferences? <span style="font-weight:400;color:var(--gray-400)">(optional)</span></label>
+          <input type="text" name="brand_colors" placeholder="e.g. Blue and white, or no preference">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EXTRAS & NOTES -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-card-icon">✏️</div>
+        <div>
+          <h2>Anything else?</h2>
+          <p>Extra requests, questions, anything</p>
+        </div>
+      </div>
+      <div class="form-card-body">
+        <div class="field">
+          <label>Examples of websites you like <span style="font-weight:400;color:var(--gray-400)">(optional)</span></label>
+          <input type="text" name="website_examples" placeholder="Links or business names with sites you like">
+        </div>
+        <div class="field">
+          <label>Additional notes or questions <span style="font-weight:400;color:var(--gray-400)">(optional)</span></label>
+          <textarea name="notes" placeholder="Anything else we should know — special requests, timeline needs, questions about the process..." style="min-height: 80px;"></textarea>
+        </div>
+        <div class="field">
+          <label>How did you hear about us?</label>
+          <div class="select-wrap">
+            <select name="referral_source">
+              <option value="" selected>Select one</option>
+              <option>Word of mouth / referral</option>
+              <option>Google search</option>
+              <option>Facebook</option>
+              <option>Drove by / saw a sign</option>
+              <option>Family or friend</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="form-card">
+      <div class="submit-section">
+        <button type="submit" class="submit-btn">
+          Submit & Get Started
+          <svg viewBox="0 0 18 18" fill="none"><path d="M3.75 9H14.25M14.25 9L10.5 5.25M14.25 9L10.5 12.75" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="submit-note">No payment required yet — we'll reach out within 24 hours to confirm details and get started.</p>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS STATE -->
+  <div class="form-card" id="successCard" style="display:none;">
+    <div class="success-state show">
+      <div class="success-icon">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M6 16L12.5 22.5L26 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>You're in. We'll be in touch.</h2>
+      <p>Your intake form was received. Braxton will reach out within 24 hours to go over your project and next steps.</p>
+      <div class="success-timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <strong>Within 24 hours</strong>
+            <span>We review your info and reach out to confirm</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <strong>Day 1–2</strong>
+            <span>Build begins — site, GBP, and everything else</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <strong>Day 5–7</strong>
+            <span>You review, approve, and go live</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-bar">
+    <div class="trust-item">
+      <svg viewBox="0 0 14 14" fill="none"><path d="M7 1L8.5 5H13L9.5 7.5L11 12L7 9L3 12L4.5 7.5L1 5H5.5L7 1Z" fill="currentColor"/></svg>
+      5–7 day delivery
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 14 14" fill="none"><path d="M7 1C3.7 1 1 3.7 1 7s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 2.5c.8 0 1.5.7 1.5 1.5S7.8 6.5 7 6.5 5.5 5.8 5.5 5 6.2 3.5 7 3.5zM7 12c-1.5 0-2.8-.7-3.7-1.7.9-1 2.2-1.8 3.7-1.8s2.8.7 3.7 1.8C9.8 11.3 8.5 12 7 12z" fill="currentColor"/></svg>
+      East Texas local
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M2 4h10M2 10h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      No payment until approved
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const form = document.getElementById('intakeForm');
+  const successCard = document.getElementById('successCard');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        successCard.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = 'Something went wrong — try again';
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
