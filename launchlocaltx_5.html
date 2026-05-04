@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch Local TX | Your Business, Built Right.</title>
+<meta name="description" content="Launch Local TX helps small businesses in East Texas get online fast. Websites, Google Business profiles, logos, business cards — everything you need to look legit, delivered in 5-7 days.">
+<meta name="keywords" content="web design East Texas, small business website Grand Saline, Google Business setup East Texas, local business marketing Van Zandt County">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --navy:#0B1F3A;
+  --blue:#1A56DB;
+  --blue-light:#2E6FF3;
+  --gold:#F5A623;
+  --white:#FFFFFF;
+  --off-white:#F8F9FC;
+  --gray:#64748B;
+  --light-gray:#E2E8F0;
+  --border:rgba(11,31,58,0.08);
+  --display:'Plus Jakarta Sans',sans-serif;
+  --body:'Plus Jakarta Sans',sans-serif;
+}
+body{background:var(--white);color:var(--navy);font-family:var(--body);font-weight:300;overflow-x:hidden;line-height:1.7;}
+
+/* TOPBAR */
+.topbar{background:var(--navy);padding:10px 52px;display:flex;justify-content:space-between;align-items:center;font-family:var(--body);font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);}
+.topbar a{color:var(--gold);text-decoration:none;font-weight:500;}
+.topbar-right{display:flex;gap:24px;align-items:center;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:500;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:0 52px;height:72px;box-shadow:0 1px 20px rgba(11,31,58,0.06);}
+.logo{text-decoration:none;display:flex;align-items:center;gap:12px;}
+.logo-mark{width:36px;height:36px;background:var(--navy);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.logo-text{font-family:var(--display);font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-0.5px;}
+.logo-text span{color:var(--blue);}
+nav{display:flex;align-items:center;gap:32px;}
+nav a{font-family:var(--body);font-size:14px;font-weight:500;color:var(--gray);text-decoration:none;transition:color 0.2s;}
+nav a:hover{color:var(--navy);}
+.nav-cta{background:var(--navy)!important;color:white!important;padding:10px 22px;border-radius:6px;font-weight:500!important;}
+.nav-cta:hover{background:var(--blue)!important;}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.burger span{display:block;width:24px;height:1.5px;background:var(--navy);}
+.mob-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy);z-index:499;padding:100px 40px 40px;flex-direction:column;gap:8px;}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-family:var(--display);font-size:32px;font-weight:700;color:var(--white);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);}
+.mob-close{position:absolute;top:28px;right:32px;font-size:28px;color:rgba(255,255,255,0.5);cursor:pointer;background:none;border:none;}
+
+/* HERO */
+.hero{background:var(--navy);position:relative;overflow:hidden;padding:100px 52px 80px;min-height:88vh;display:flex;align-items:center;}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(46,111,243,0.15) 0%,transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,166,35,0.08) 0%,transparent 70%);pointer-events:none;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1160px;margin:0 auto;width:100%;position:relative;z-index:2;}
+.hero-left{}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.25);padding:6px 14px;border-radius:100px;font-family:var(--body);font-size:12px;font-weight:500;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;animation:fadeUp 0.8s 0.1s ease both;}
+.hero-eyebrow::before{content:'★';font-size:10px;}
+.hero h1{font-family:var(--display);font-size:clamp(42px,5.5vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;color:var(--white);animation:fadeUp 0.8s 0.2s ease both;}
+.hero h1 .gold{color:var(--gold);}
+.hero h1 .blue{color:#5B9BFF;}
+.hero-sub{font-size:18px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.8;margin:20px 0 36px;max-width:480px;animation:fadeUp 0.8s 0.3s ease both;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp 0.8s 0.4s ease both;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);text-decoration:none;font-family:var(--body);font-size:14px;font-weight:700;padding:15px 28px;border-radius:6px;transition:all 0.2s;letter-spacing:0.3px;}
+.btn-primary:hover{background:#e8961a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,166,35,0.35);}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:white;text-decoration:none;font-family:var(--body);font-size:14px;font-weight:500;padding:15px 28px;border-radius:6px;transition:all 0.2s;}
+.btn-secondary:hover{background:rgba(255,255,255,0.12);}
+.hero-right{animation:fadeUp 0.8s 0.4s ease both;}
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;backdrop-filter:blur(12px);}
+.hero-card-title{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px;}
+.package-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.package-row:last-child{border-bottom:none;}
+.package-name{font-family:var(--display);font-size:17px;font-weight:700;color:var(--white);}
+.package-desc{font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px;}
+.package-price{font-family:var(--display);font-size:22px;font-weight:800;color:var(--gold);}
+.hero-badge{display:flex;align-items:center;gap:10px;margin-top:20px;padding:14px 16px;background:rgba(46,111,243,0.12);border:1px solid rgba(46,111,243,0.2);border-radius:8px;}
+.hero-badge-text{font-size:13px;color:rgba(255,255,255,0.7);font-weight:400;}
+.hero-badge-text strong{color:white;font-weight:600;}
+
+/* TRUST BAR */
+.trust-bar{background:var(--off-white);border-bottom:1px solid var(--border);padding:20px 52px;}
+.trust-bar-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;color:var(--gray);}
+.trust-item .icon{font-size:16px;}
+.trust-divider{width:1px;height:20px;background:var(--border);}
+
+/* SECTIONS */
+.section{padding:100px 52px;}
+.section-inner{max-width:1160px;margin:0 auto;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.eyebrow::before{content:'';width:20px;height:2px;background:var(--blue);}
+.section-title{font-family:var(--display);font-size:clamp(32px,4.5vw,56px);font-weight:800;line-height:1.05;letter-spacing:-1px;color:var(--navy);margin-bottom:16px;}
+.section-title em{color:var(--blue);font-style:normal;}
+.section-title .gold{color:var(--gold);}
+.section-sub{font-size:17px;font-weight:300;color:var(--gray);line-height:1.8;max-width:560px;}
+
+/* PROBLEM SECTION */
+.problem{background:var(--white);}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
+.problem-list{display:flex;flex-direction:column;gap:16px;}
+.problem-item{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--off-white);border-radius:10px;border-left:3px solid var(--light-gray);}
+.problem-item.bad{border-left-color:#EF4444;}
+.problem-item .p-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.problem-item h4{font-family:var(--display);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.problem-item p{font-size:13px;color:var(--gray);line-height:1.6;}
+.solution-box{background:var(--navy);border-radius:16px;padding:40px;position:relative;overflow:hidden;}
+.solution-box::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(46,111,243,0.3) 0%,transparent 70%);}
+.solution-box h3{font-family:var(--display);font-size:28px;font-weight:800;color:var(--white);line-height:1.1;margin-bottom:16px;position:relative;z-index:2;}
+.solution-box h3 span{color:var(--gold);}
+.solution-box p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:24px;position:relative;z-index:2;}
+.solution-list{display:flex;flex-direction:column;gap:10px;position:relative;z-index:2;}
+.solution-item{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.8);}
+.solution-item::before{content:'✓';width:20px;height:20px;background:var(--gold);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+
+/* PACKAGES */
+.packages{background:var(--off-white);}
+.packages-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:60px;background:var(--light-gray);border-radius:12px;overflow:hidden;}
+.pkg-card{background:var(--white);padding:36px 28px;position:relative;transition:transform 0.2s;}
+.pkg-card.featured{background:var(--navy);}
+.pkg-card.featured::before{content:'Most Popular';position:absolute;top:16px;right:16px;background:var(--gold);color:var(--navy);font-family:var(--body);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px;}
+.pkg-label{font-family:var(--body);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-bottom:8px;}
+.pkg-card.featured .pkg-label{color:rgba(255,255,255,0.45);}
+.pkg-name{font-family:var(--display);font-size:24px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.pkg-card.featured .pkg-name{color:var(--white);}
+.pkg-price{font-family:var(--display);font-size:42px;font-weight:800;color:var(--blue);line-height:1;margin:16px 0 4px;}
+.pkg-card.featured .pkg-price{color:var(--gold);}
+.pkg-period{font-size:12px;color:var(--gray);margin-bottom:20px;}
+.pkg-card.featured .pkg-period{color:rgba(255,255,255,0.4);}
+.pkg-divider{height:1px;background:var(--light-gray);margin-bottom:20px;}
+.pkg-card.featured .pkg-divider{background:rgba(255,255,255,0.1);}
+.pkg-features{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.pkg-feat{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--gray);line-height:1.5;}
+.pkg-card.featured .pkg-feat{color:rgba(255,255,255,0.65);}
+.pkg-feat::before{content:'✓';color:var(--blue);font-weight:700;font-size:12px;flex-shrink:0;margin-top:1px;}
+.pkg-card.featured .pkg-feat::before{color:var(--gold);}
+.pkg-btn{display:block;text-align:center;padding:13px;border-radius:6px;font-family:var(--body);font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;background:var(--off-white);color:var(--navy);border:1px solid var(--light-gray);}
+.pkg-btn:hover{background:var(--navy);color:white;border-color:var(--navy);}
+.pkg-card.featured .pkg-btn{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+.pkg-card.featured .pkg-btn:hover{background:#e8961a;}
+.pkg-monthly{background:var(--navy);border-radius:12px;margin-top:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.pkg-monthly-left h4{font-family:var(--display);font-size:20px;font-weight:800;color:var(--white);margin-bottom:4px;}
+.pkg-monthly-left p{font-size:13px;color:rgba(255,255,255,0.5);}
+.pkg-monthly-price{font-family:var(--display);font-size:32px;font-weight:800;color:var(--gold);}
+.pkg-monthly-price span{font-size:14px;color:rgba(255,255,255,0.4);font-family:var(--body);font-weight:300;}
+.pkg-monthly-features{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.pkg-monthly-feat{font-size:12px;color:rgba(255,255,255,0.55);background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.08);}
+
+/* PROCESS */
+.process{background:var(--white);}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--light-gray);border-radius:12px;overflow:hidden;margin-top:60px;}
+.p-step{background:var(--white);padding:36px 28px;position:relative;}
+.p-num{font-family:var(--display);font-size:64px;font-weight:800;color:rgba(11,31,58,0.04);line-height:1;margin-bottom:-8px;}
+.p-icon{font-size:28px;margin-bottom:14px;display:block;}
+.p-step h3{font-family:var(--display);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.p-step p{font-size:13px;color:var(--gray);line-height:1.7;}
+.p-bar{width:28px;height:3px;background:var(--blue);margin-bottom:16px;border-radius:2px;}
+
+/* WHY */
+.why{background:var(--navy);position:relative;overflow:hidden;}
+.why::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(46,111,243,0.12) 0%,transparent 70%);pointer-events:none;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.why-left .eyebrow{color:var(--gold);}
+.why-left .eyebrow::before{background:var(--gold);}
+.why-left .section-title{color:var(--white);}
+.why-left .section-sub{color:rgba(255,255,255,0.5);}
+.why-cards{display:flex;flex-direction:column;gap:12px;margin-top:36px;}
+.why-card{display:flex;align-items:flex-start;gap:16px;padding:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;transition:background 0.2s;}
+.why-card:hover{background:rgba(255,255,255,0.07);}
+.why-card-icon{width:40px;height:40px;background:rgba(46,111,243,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.why-card h4{font-family:var(--display);font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.why-card p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;}
+.why-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden;}
+.why-stat{background:rgba(255,255,255,0.03);padding:32px 24px;text-align:center;}
+.why-stat-num{font-family:var(--display);font-size:48px;font-weight:800;color:var(--gold);line-height:1;}
+.why-stat-label{font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;font-weight:300;}
+
+/* WHO */
+.who{background:var(--off-white);}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--light-gray);border-radius:12px;overflow:hidden;margin-top:60px;}
+.who-card{background:var(--white);padding:32px 24px;transition:background 0.2s;}
+.who-card:hover{background:var(--off-white);}
+.who-icon{font-size:32px;margin-bottom:16px;display:block;}
+.who-card h3{font-family:var(--display);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.who-card p{font-size:13px;color:var(--gray);line-height:1.7;}
+
+/* PORTFOLIO */
+.portfolio{background:var(--white);}
+.port-note{display:inline-flex;align-items:center;gap:8px;background:rgba(26,86,219,0.06);border:1px solid rgba(26,86,219,0.12);padding:10px 18px;border-radius:8px;font-size:13px;color:var(--blue);font-weight:500;margin-top:20px;}
+.port-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+.port-card{border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;}
+.port-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,31,58,0.1);}
+.port-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;}
+.port-img.dark{background:var(--navy);}
+.port-img.light{background:var(--off-white);}
+.port-img.mid{background:#1a1a2e;}
+.port-info{padding:20px;}
+.port-tag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;}
+.port-info h4{font-family:var(--display);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.port-info p{font-size:12px;color:var(--gray);}
+.port-coming{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;}
+.port-coming span{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);}
+
+/* TESTIMONIALS placeholder */
+.testimonials{background:var(--off-white);}
+.test-note{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:48px;text-align:center;margin-top:48px;}
+.test-note p{font-size:15px;color:var(--gray);margin-bottom:8px;}
+.test-note strong{font-family:var(--display);font-size:18px;color:var(--navy);}
+
+/* SERVICE AREA */
+.area{background:var(--navy);padding:60px 52px;}
+.area-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:40px;}
+.area-left h3{font-family:var(--display);font-size:clamp(24px,3.5vw,40px);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:8px;}
+.area-left h3 span{color:var(--gold);}
+.area-left p{font-size:14px;color:rgba(255,255,255,0.4);}
+.area-towns{display:flex;flex-wrap:wrap;gap:8px;}
+.area-town{font-family:var(--body);font-size:12px;font-weight:500;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);padding:6px 14px;border-radius:100px;transition:all 0.2s;}
+.area-town:hover{border-color:var(--gold);color:var(--gold);}
+
+/* CTA */
+.cta-section{background:var(--blue);padding:100px 52px;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,0.08) 0%,transparent 70%);}
+.cta-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+.cta-inner h2{font-family:var(--display);font-size:clamp(32px,5vw,56px);font-weight:800;color:var(--white);line-height:1.05;letter-spacing:-1px;margin-bottom:16px;}
+.cta-inner h2 span{color:var(--gold);}
+.cta-inner p{font-size:17px;color:rgba(255,255,255,0.7);margin-bottom:36px;font-weight:300;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-phone{font-family:var(--display);font-size:18px;font-weight:700;color:var(--white);margin-top:24px;opacity:0.7;}
+
+/* FOOTER */
+footer{background:var(--navy);padding:60px 52px 28px;}
+.ft{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:56px;max-width:1160px;margin:0 auto 44px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.fb-logo{font-family:var(--display);font-size:22px;font-weight:800;color:var(--white);margin-bottom:6px;}
+.fb-logo span{color:var(--blue-light);}
+.fb-tag{font-size:12px;font-weight:500;color:rgba(255,255,255,0.3);letter-spacing:1px;margin-bottom:14px;}
+.fb-desc{font-size:13px;color:rgba(255,255,255,0.25);line-height:1.8;max-width:260px;}
+.fc h4{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:18px;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.fc ul li a{font-size:14px;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;}
+.fc ul li a:hover{color:var(--gold);}
+.fbot{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.fbot span{font-size:12px;color:rgba(255,255,255,0.15);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+.sr{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.sr.v{opacity:1;transform:none;}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}.d4{transition-delay:0.4s;}
+
+@keyframes pulse2{0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,0.2);}50%{box-shadow:0 0 0 6px rgba(34,197,94,0.1);}}
+@media(max-width:960px){
+  .testimonials > .section-inner > div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
+  #about .section-inner > div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:40px!important;}
+  #faq .section-inner > div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
+  .recently-launched{flex-direction:column!important;align-items:flex-start!important;}
+}
+@media(max-width:960px){
+  .topbar{padding:8px 20px;font-size:11px;}
+  .topbar-left{display:none;}
+  header{padding:0 20px;}
+  nav{display:none;}
+  .burger{display:flex;}
+  .hero{padding:80px 20px 60px;min-height:auto;}
+  .hero-grid{grid-template-columns:1fr;gap:40px;}
+  .hero-right{display:none;}
+  .trust-bar{padding:16px 20px;}
+  .trust-bar-inner{justify-content:center;gap:12px;}
+  .trust-divider{display:none;}
+  .section{padding:60px 20px;}
+  .problem-grid{grid-template-columns:1fr;gap:40px;}
+  .packages-grid{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .why-grid{grid-template-columns:1fr;gap:40px;}
+  .why-stats{grid-template-columns:1fr 1fr;}
+  .who-grid{grid-template-columns:1fr;}
+  .port-preview{grid-template-columns:1fr;}
+  .area{padding:40px 20px;}
+  .area-inner{flex-direction:column;align-items:flex-start;}
+  .cta-section{padding:60px 20px;}
+  footer{padding:40px 20px 20px;}
+  .ft{grid-template-columns:1fr;gap:32px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">📍 Serving East Texas — Grand Saline, Canton, Wills Point & Beyond</span>
+  <span class="topbar-right">
+    <span>5–7 Day Delivery</span>
+    <a href="mailto:launchlocaltx@gmail.com">launchlocaltx@gmail.com</a>
+  </span>
+</div>
+
+<header>
+  <a href="#" class="logo">
+    <div class="logo-mark">🚀</div>
+    <div class="logo-text">Launch<span>Local</span></div>
+  </a>
+  <nav>
+    <a href="#packages">Packages</a>
+    <a href="#process">How It Works</a>
+    <a href="#portfolio">Our Work</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
+  </nav>
+  <div class="burger" onclick="openMenu()"><span></span><span></span><span></span></div>
+</header>
+
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="closeMenu()">✕</button>
+  <a href="#packages" onclick="closeMenu()">Packages</a>
+  <a href="#process" onclick="closeMenu()">How It Works</a>
+  <a href="#portfolio" onclick="closeMenu()">Our Work</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="#contact" onclick="closeMenu()">Get Started</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-eyebrow">East Texas · Built for Small Business</div>
+      <h1>Your Business,<br><span class="gold">Built Right.</span></h1>
+      <p class="hero-sub">Websites, Google Business profiles, logos, and business cards — everything a small East Texas business needs to look legit online. Delivered in 5–7 days. Priced for small towns.</p>
+      <div class="hero-btns">
+        <a href="#packages" class="btn-primary">See Packages →</a>
+        <a href="#process" class="btn-secondary">How It Works</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-title">What We Offer</div>
+        <div class="package-row">
+          <div><div class="package-name">Starter</div><div class="package-desc">Google Business setup + optimization</div></div>
+          <div class="package-price">$300</div>
+        </div>
+        <div class="package-row">
+          <div><div class="package-name">Foundation</div><div class="package-desc">Website + GBP + Facebook</div></div>
+          <div class="package-price">$800</div>
+        </div>
+        <div class="package-row">
+          <div><div class="package-name">Full Launch</div><div class="package-desc">Complete brand — website, logo, cards + more</div></div>
+          <div class="package-price">$1,300</div>
+        </div>
+        <div class="package-row">
+          <div><div class="package-name">Monthly</div><div class="package-desc">Ongoing management + growth</div></div>
+          <div class="package-price">$150+</div>
+        </div>
+        <div class="hero-badge">
+          <span>⚡</span>
+          <div class="hero-badge-text"><strong>5–7 day delivery</strong> — most agencies take 6 weeks</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="icon">⚡</span> 5–7 Day Delivery</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="icon">📍</span> East Texas Local</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="icon">💰</span> Small Town Pricing</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="icon">🎯</span> One Point of Contact</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="icon">✅</span> Satisfaction Guaranteed</div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section problem">
+  <div class="section-inner">
+    <div class="eyebrow sr">The Problem</div>
+    <h2 class="section-title sr">Most small businesses in<br>East Texas are <em>invisible online.</em></h2>
+    <div class="problem-grid">
+      <div class="problem-list">
+        <div class="problem-item bad sr">
+          <span class="p-icon">❌</span>
+          <div><h4>No website — or a terrible one</h4><p>Customers search for you and find nothing — or worse, a site that makes you look unprofessional.</p></div>
+        </div>
+        <div class="problem-item bad sr d1">
+          <span class="p-icon">❌</span>
+          <div><h4>Google Business Profile not set up</h4><p>You're missing the #1 free tool for local customers to find you. Your competitors are showing up — you're not.</p></div>
+        </div>
+        <div class="problem-item bad sr d2">
+          <span class="p-icon">❌</span>
+          <div><h4>Big agencies charge $3,000–$5,000</h4><p>Most East Texas small businesses can't afford that — and they shouldn't have to.</p></div>
+        </div>
+        <div class="problem-item bad sr d3">
+          <span class="p-icon">❌</span>
+          <div><h4>Takes 6–12 weeks to get anything built</h4><p>You need to be online now — not months from now. Every week you wait is business you're losing.</p></div>
+        </div>
+      </div>
+      <div class="solution-box sr d1">
+        <h3>That's exactly what<br><span>Launch Local TX</span> fixes.</h3>
+        <p>We build complete online presences for East Texas small businesses — fast, affordable, and done right.</p>
+        <div class="solution-list">
+          <div class="solution-item">Professional website built and live in 5–7 days</div>
+          <div class="solution-item">Google Business Profile fully optimized</div>
+          <div class="solution-item">Logo, business cards, Facebook — all included</div>
+          <div class="solution-item">Prices small town businesses can actually afford</div>
+          <div class="solution-item">Local guy — not a faceless agency</div>
+          <div class="solution-item">One person handles everything, start to finish</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section packages" id="packages">
+  <div class="section-inner">
+    <div class="eyebrow sr">Packages</div>
+    <h2 class="section-title sr">Simple pricing.<br><em>No surprises.</em></h2>
+    <p class="section-sub sr">Choose what you need. Every package includes a real human who handles everything and delivers on time.</p>
+    <div class="packages-grid sr">
+      <div class="pkg-card">
+        <div class="pkg-label">Package 01</div>
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-price">$300</div>
+        <div class="pkg-period">One-time · Delivered in 3–5 days</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-features">
+          <div class="pkg-feat">Google Business Profile setup and optimization</div>
+          <div class="pkg-feat">Keyword-optimized business description written for you</div>
+          <div class="pkg-feat">Photos uploaded and organized professionally</div>
+          <div class="pkg-feat">Hours, categories, and service area configured</div>
+          <div class="pkg-feat">Review request strategy — how to get your first 10 reviews fast</div>
+        </div>
+        <a href="#contact" class="pkg-btn">Get Started</a>
+      </div>
+      <div class="pkg-card featured">
+        <div class="pkg-label">Package 02</div>
+        <div class="pkg-name">Foundation</div>
+        <div class="pkg-price">$800</div>
+        <div class="pkg-period">One-time · Delivered in 5–7 days</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-features">
+          <div class="pkg-feat">Everything in Starter</div>
+          <div class="pkg-feat">4–5 page professional website — built and live</div>
+          <div class="pkg-feat">Mobile optimized — looks perfect on every phone</div>
+          <div class="pkg-feat">SEO ready — built to show up on Google</div>
+          <div class="pkg-feat">Custom domain connected and configured</div>
+          <div class="pkg-feat">Contact form that sends leads straight to your phone</div>
+          <div class="pkg-feat">Facebook Business page setup and linked</div>
+        </div>
+        <a href="#contact" class="pkg-btn">Get Started</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-label">Package 03 — Best Value</div>
+        <div class="pkg-name">Full Launch</div>
+        <div class="pkg-price">$1,300</div>
+        <div class="pkg-period">One-time · Delivered in 5–7 days</div>
+        <div class="pkg-divider"></div>
+        <div style="background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.2);border-radius:6px;padding:10px 12px;margin-bottom:14px;font-size:12px;color:#92650a;font-weight:500;">
+          💡 Most businesses pay $3,000–$5,000 for this elsewhere. You get it all for $1,300.
+        </div>
+        <div class="pkg-features">
+          <div class="pkg-feat">Everything in Foundation</div>
+          <div class="pkg-feat">Custom logo designed from scratch — yours forever</div>
+          <div class="pkg-feat">Brand color palette and font selection</div>
+          <div class="pkg-feat">Business card design — print-ready files delivered</div>
+          <div class="pkg-feat">Print coordination — we handle ordering if you want</div>
+          <div class="pkg-feat">Brand guidelines doc — so everything always looks consistent</div>
+          <div class="pkg-feat">You walk away with a complete, professional brand identity</div>
+        </div>
+        <a href="#contact" class="pkg-btn">Get Started</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-label">Add-On</div>
+        <div class="pkg-name">Monthly</div>
+        <div class="pkg-price">$150<span style="font-size:16px;color:var(--gray);font-family:var(--body);font-weight:300;">/mo</span></div>
+        <div class="pkg-period">Ongoing · Cancel anytime · No contracts</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-features">
+          <div class="pkg-feat">8 Google Business posts per month — keeps you active and ranking</div>
+          <div class="pkg-feat">Monthly review request campaign sent to your customers</div>
+          <div class="pkg-feat">One website update per month — new photos, services, anything</div>
+          <div class="pkg-feat">Monthly performance report — calls, views, search rankings</div>
+          <div class="pkg-feat">Priority support — text or call anytime</div>
+        </div>
+        <a href="#contact" class="pkg-btn">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process" id="process">
+  <div class="section-inner">
+    <div class="eyebrow sr">How It Works</div>
+    <h2 class="section-title sr">Up and running in<br><em>less than a week.</em></h2>
+    <div class="process-steps">
+      <div class="p-step sr">
+        <div class="p-num">01</div>
+        <div class="p-bar"></div>
+        <span class="p-icon">📋</span>
+        <h3>You Tell Me About Your Business</h3>
+        <p>Fill out a short form or give me a call. I'll ask a few questions about your business, services, and what you're looking for.</p>
+      </div>
+      <div class="p-step sr d1">
+        <div class="p-num">02</div>
+        <div class="p-bar"></div>
+        <span class="p-icon">🎨</span>
+        <h3>I Build Everything</h3>
+        <p>I handle the website, Google Business, logo, and everything else. You don't have to touch a thing. I'll send you updates as it comes together.</p>
+      </div>
+      <div class="p-step sr d2">
+        <div class="p-num">03</div>
+        <div class="p-bar"></div>
+        <span class="p-icon">✅</span>
+        <h3>You Review and Approve</h3>
+        <p>I'll show you everything before it goes live. We make any changes until you're 100% satisfied. No rush, no pressure.</p>
+      </div>
+      <div class="p-step sr d3">
+        <div class="p-num">04</div>
+        <div class="p-bar"></div>
+        <span class="p-icon">🚀</span>
+        <h3>You're Live and Getting Found</h3>
+        <p>Your website goes live, your Google Business is active, and customers can find you. All within 5–7 days of getting started.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section why">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-left">
+        <div class="eyebrow sr">Why Launch Local TX</div>
+        <h2 class="section-title sr">Not an agency.<br><em>Your neighbor.</em></h2>
+        <p class="section-sub sr">I'm from East Texas. I know what small businesses here need — and what they can afford. I'm not a faceless agency charging big city prices.</p>
+        <div class="why-cards">
+          <div class="why-card sr">
+            <div class="why-card-icon">⚡</div>
+            <div><h4>5–7 Day Delivery</h4><p>Most agencies take 6–12 weeks. You can't afford to wait that long.</p></div>
+          </div>
+          <div class="why-card sr d1">
+            <div class="why-card-icon">💰</div>
+            <div><h4>Small Town Pricing</h4><p>Agencies in Dallas charge $3,000–$5,000. Our Full Launch package is $1,300 — and it's better.</p></div>
+          </div>
+          <div class="why-card sr d2">
+            <div class="why-card-icon">🤝</div>
+            <div><h4>One Person, Start to Finish</h4><p>You deal with me — not a team of people who don't know your business. One call, one contact, one person who cares.</p></div>
+          </div>
+          <div class="why-card sr d3">
+            <div class="why-card-icon">📍</div>
+            <div><h4>Built for East Texas</h4><p>Local search is different here. I build sites that show up when people in Grand Saline, Canton, and Wills Point are searching.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-stats sr d1">
+        <div class="why-stat">
+          <div class="why-stat-num">5–7</div>
+          <div class="why-stat-label">Days to go live</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">$800</div>
+          <div class="why-stat-label">Full website package</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">75%</div>
+          <div class="why-stat-label">Of users judge credibility by website</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">1</div>
+          <div class="why-stat-label">Point of contact always</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="section who">
+  <div class="section-inner">
+    <div class="eyebrow sr">Who We Serve</div>
+    <h2 class="section-title sr">Built for every kind of<br><span class="gold">East Texas business.</span></h2>
+    <div class="who-grid">
+      <div class="who-card sr">
+        <span class="who-icon">🔨</span>
+        <h3>Contractors & Trades</h3>
+        <p>Framers, plumbers, electricians, HVAC, painters, pressure washers — if you work with your hands, you need a site that shows it.</p>
+      </div>
+      <div class="who-card sr d1">
+        <span class="who-icon">✂️</span>
+        <h3>Salons & Service Shops</h3>
+        <p>Hair, nails, barbers, auto repair — local service businesses that rely on their community finding them online.</p>
+      </div>
+      <div class="who-card sr d2">
+        <span class="who-icon">🍽️</span>
+        <h3>Restaurants & Food</h3>
+        <p>BBQ joints, diners, catering — if people are Googling where to eat in your town, you need to show up.</p>
+      </div>
+      <div class="who-card sr">
+        <span class="who-icon">🏪</span>
+        <h3>Local Retail & Shops</h3>
+        <p>Feed stores, boutiques, hardware — small town shops that deserve a professional online presence.</p>
+      </div>
+      <div class="who-card sr d1">
+        <span class="who-icon">🌱</span>
+        <h3>Lawn & Landscaping</h3>
+        <p>Mowing, tree trimming, landscaping — the guys who keep East Texas looking good deserve to look good online.</p>
+      </div>
+      <div class="who-card sr d2">
+        <span class="who-icon">🚀</span>
+        <h3>New Businesses</h3>
+        <p>Just starting out? Get it done right from day one. A professional presence from the start sets you apart immediately.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section portfolio" id="portfolio">
+  <div class="section-inner">
+    <div class="eyebrow sr">Our Work</div>
+    <h2 class="section-title sr">Real businesses.<br><em>Real results.</em></h2>
+    <div class="port-note sr">🚀 Growing fast — new client sites launching weekly across East Texas.</div>
+
+    <!-- RECENTLY LAUNCHED BANNER -->
+    <div class="recently-launched sr" style="background:linear-gradient(135deg,var(--navy) 0%,#0d2d4f 100%);border-radius:14px;padding:28px 32px;margin-top:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;border:1px solid rgba(26,86,219,0.2);">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,0.2);flex-shrink:0;animation:pulse2 2s infinite;"></div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Just Launched</div>
+          <div style="font-family:var(--display);font-size:20px;font-weight:800;color:var(--white);">A.W Paint and Stain</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-top:2px;">Foundation Package · Grand Saline, TX · Delivered in under 24 hours</div>
+        </div>
+      </div>
+      <a href="https://awpaintandstain.com" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);text-decoration:none;font-family:var(--display);font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px;white-space:nowrap;transition:all 0.2s;">View Live Site →</a>
+    </div>
+
+    <div class="port-preview" style="margin-top:20px;">
+      <div class="port-card sr">
+        <div class="port-img" style="background:#0D1F1E;padding:20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
+          <div style="font-family:'DM Sans',sans-serif;font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.5px;">A.W <span style="color:#3ABFB3">Paint</span></div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);">and Stain</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
+            <span style="font-size:10px;background:rgba(58,191,179,0.15);border:1px solid rgba(58,191,179,0.25);color:#3ABFB3;padding:3px 9px;border-radius:20px;font-weight:600;">Painting</span>
+            <span style="font-size:10px;background:rgba(58,191,179,0.15);border:1px solid rgba(58,191,179,0.25);color:#3ABFB3;padding:3px 9px;border-radius:20px;font-weight:600;">Staining</span>
+            <span style="font-size:10px;background:rgba(58,191,179,0.15);border:1px solid rgba(58,191,179,0.25);color:#3ABFB3;padding:3px 9px;border-radius:20px;font-weight:600;">Docks</span>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-tag">Painting & Staining · Grand Saline TX</div>
+          <h4>A.W Paint and Stain</h4>
+          <p>Foundation Package — Website, Google Business, Domain Setup · <a href="https://awpaintandstain.com" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:500;">View Live Site →</a></p>
+        </div>
+      </div>
+      <div class="port-card sr d1">
+        <div class="port-img dark" style="background:#080808;padding:20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+          <div style="font-family:var(--display);font-size:22px;font-weight:800;color:white;">Dolente<span style="color:#D42B2B"> Brothers</span></div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);">Outdoor Restoration</div>
+        </div>
+        <div class="port-info">
+          <div class="port-tag">Outdoor Restoration · Grand Saline TX</div>
+          <h4>Dolente Brothers Outdoor Restoration</h4>
+          <p>Full Launch Package — Website, Logo, Business Cards · <a href="https://dolentebrothers.com" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:500;">View Live Site →</a></p>
+        </div>
+      </div>
+      <div class="port-card sr d2">
+        <div class="port-img light" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+          <span style="font-size:40px;">🚀</span>
+          <span style="font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);">Your Business Next</span>
+        </div>
+        <div class="port-info">
+          <div class="port-tag">Now Accepting Clients · East Texas</div>
+          <h4>Be Our Next Portfolio Piece</h4>
+          <p>New businesses get launch pricing. Professional online presence in 5–7 days, guaranteed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials" id="testimonials" style="background:var(--navy);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(46,111,243,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="section-inner" style="position:relative;z-index:2;">
+    <div class="eyebrow sr" style="color:var(--gold);">
+      <style>.testimonials .eyebrow::before{background:var(--gold);}</style>
+      What Clients Say
+    </div>
+    <h2 class="section-title sr" style="color:var(--white);">Real people.<br><span style="color:var(--gold);">Real results.</span></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px;" class="sr d1">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:32px;">
+        <div style="display:flex;gap:4px;margin-bottom:16px;">
+          <span style="color:var(--gold);font-size:16px;">★★★★★</span>
+        </div>
+        <p style="font-size:16px;color:rgba(255,255,255,0.8);line-height:1.7;font-style:italic;margin-bottom:20px;">"Braxton built my whole website in less than a day. Looks better than anything I could've done myself. Easy to work with and knows what he's doing."</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--teal, #1B6B63);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;color:white;font-size:16px;">A</div>
+          <div>
+            <div style="font-family:var(--display);font-weight:700;color:var(--white);font-size:14px;">Alex Wooten</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.35);">A.W Paint and Stain · Grand Saline, TX</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:14px;padding:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+        <div style="font-size:40px;margin-bottom:16px;">⭐</div>
+        <div style="font-family:var(--display);font-size:18px;font-weight:800;color:var(--white);margin-bottom:8px;">Your Review Here</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;">We're actively building our client base across East Texas. Get started today and be part of something growing.</p>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;background:var(--gold);color:var(--navy);text-decoration:none;font-size:13px;font-weight:700;padding:10px 20px;border-radius:6px;">Get Started →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about" style="background:var(--white);">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+      <div class="sr">
+        <div class="eyebrow">The Person Behind It</div>
+        <h2 class="section-title">Not an agency.<br><em>A neighbor.</em></h2>
+        <p style="font-size:16px;color:var(--gray);line-height:1.8;margin-bottom:16px;font-weight:300;">I'm Braxton — 20 years old, born and raised in Van Zandt County. I work construction full time and built Launch Local TX because I kept seeing East Texas businesses getting left behind online.</p>
+        <p style="font-size:16px;color:var(--gray);line-height:1.8;margin-bottom:16px;font-weight:300;">I use the same tools the big agencies use — I just don't charge big agency prices. I build every site myself, I'm on every project, and I actually care whether your business wins.</p>
+        <p style="font-size:16px;color:var(--gray);line-height:1.8;margin-bottom:28px;font-weight:300;">No middlemen. No account managers. Just me — your neighbor — building your business online.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:var(--navy);">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0;"></div>
+            Based in Grand Saline, TX — Van Zandt County
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:var(--navy);">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0;"></div>
+            I build every site personally — no outsourcing
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:var(--navy);">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0;"></div>
+            Text or call me directly — (430) 322-8772
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:var(--navy);">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0;"></div>
+            Same-day responses, always
+          </div>
+        </div>
+      </div>
+      <div class="sr d1">
+        <div style="background:var(--navy);border-radius:16px;padding:40px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(46,111,243,0.2) 0%,transparent 70%);"></div>
+          <div style="position:relative;z-index:2;">
+            <div style="font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:24px;">By The Numbers</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,0.06);border-radius:10px;overflow:hidden;margin-bottom:20px;">
+              <div style="background:rgba(255,255,255,0.03);padding:24px 20px;text-align:center;">
+                <div style="font-family:var(--display);font-size:36px;font-weight:800;color:var(--gold);line-height:1;">5–7</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;font-weight:500;">Days to go live</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.03);padding:24px 20px;text-align:center;">
+                <div style="font-family:var(--display);font-size:36px;font-weight:800;color:var(--gold);line-height:1;">$0</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;font-weight:500;">Hidden fees</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.03);padding:24px 20px;text-align:center;">
+                <div style="font-family:var(--display);font-size:36px;font-weight:800;color:var(--gold);line-height:1;">1</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;font-weight:500;">Point of contact</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.03);padding:24px 20px;text-align:center;">
+                <div style="font-family:var(--display);font-size:36px;font-weight:800;color:var(--gold);line-height:1;">ETX</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;font-weight:500;">Local always</div>
+              </div>
+            </div>
+            <a href="tel:4303228772" style="display:flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:white;text-decoration:none;font-family:var(--display);font-size:14px;font-weight:700;padding:14px;border-radius:8px;transition:background 0.2s;">📞 Call or Text Braxton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="background:var(--off-white);">
+  <div class="section-inner">
+    <div class="eyebrow sr">FAQ</div>
+    <h2 class="section-title sr">Questions we<br><em>always get asked.</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px;" class="sr d1">
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;">
+        <h4 style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">Do I need to buy a domain name?</h4>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;">Yes — we'll walk you through buying one on Namecheap for about $10–12/year. We handle the setup and connect everything for you.</p>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;">
+        <h4 style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">How long does it actually take?</h4>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;">Most sites are live within 5–7 days of receiving your info and photos. Once we have everything we need, we move fast.</p>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;">
+        <h4 style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">What if I need changes after launch?</h4>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;">Every package includes 2 rounds of revisions. After that, changes are $50/round — or $0 if you're on a monthly management plan.</p>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;">
+        <h4 style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">Do I need to provide photos?</h4>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;">Phone photos of your work are perfect. The more you send, the better the site looks. We can also use placeholder content if you're just starting out.</p>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;">
+        <h4 style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">Is hosting free?</h4>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;">Yes — we host all sites on GitHub Pages, which is 100% free. The only cost is your domain name (~$12/year). No monthly hosting fees.</p>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;">
+        <h4 style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;">Do you work with businesses outside Grand Saline?</h4>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;">Absolutely. We work with businesses all across East Texas — Canton, Wills Point, Mineola, Tyler, anywhere. Most of the work is done remotely.</p>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:32px;" class="sr">
+      <p style="font-size:15px;color:var(--gray);margin-bottom:14px;">Still have questions? Just reach out.</p>
+      <a href="#contact" class="btn-primary" style="display:inline-flex;">Ask Us Anything →</a>
+    </div>
+  </div>
+</section>
+
+
+<div class="area">
+  <div class="area-inner">
+    <div class="area-left sr">
+      <h3>Serving <span>East Texas</span></h3>
+      <p>Based in Van Zandt County. We work with businesses across East Texas — in person or remote.</p>
+    </div>
+    <div class="area-towns sr">
+      <div class="area-town">Grand Saline</div>
+      <div class="area-town">Canton</div>
+      <div class="area-town">Wills Point</div>
+      <div class="area-town">Mineola</div>
+      <div class="area-town">Terrell</div>
+      <div class="area-town">Edgewood</div>
+      <div class="area-town">Lindale</div>
+      <div class="area-town">Tyler</div>
+      <div class="area-town">Longview</div>
+      <div class="area-town">& All of ETX</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA / CONTACT -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <h2>Ready to get your business<br><span>built right?</span></h2>
+    <p>Fill out the form below or send us an email. We'll get back to you same day and get started within 24 hours.</p>
+    <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:40px;text-align:left;max-width:600px;margin:0 auto;">
+      <form id="contactForm" action="https://formspree.io/f/xbdqerkr" method="POST">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+          <div>
+            <label style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:6px;">Your Name</label>
+            <input type="text" name="name" placeholder="John Smith" required style="width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:white;font-family:var(--body);font-size:14px;padding:12px 16px;border-radius:6px;outline:none;">
+          </div>
+          <div>
+            <label style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:6px;">Phone</label>
+            <input type="tel" name="phone" placeholder="(903) 000-0000" style="width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:white;font-family:var(--body);font-size:14px;padding:12px 16px;border-radius:6px;outline:none;">
+          </div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:6px;">Business Name & Type</label>
+          <input type="text" name="business" placeholder="Smith's HVAC — Heating and Cooling" required style="width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:white;font-family:var(--body);font-size:14px;padding:12px 16px;border-radius:6px;outline:none;">
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:6px;">Package Interested In</label>
+          <select name="package" style="width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:white;font-family:var(--body);font-size:14px;padding:12px 16px;border-radius:6px;outline:none;appearance:none;">
+            <option value="" style="background:#0B1F3A;">Select a package</option>
+            <option value="starter" style="background:#0B1F3A;">Starter — $300</option>
+            <option value="foundation" style="background:#0B1F3A;">Foundation — $800</option>
+            <option value="full-launch" style="background:#0B1F3A;">Full Launch — $1,300</option>
+            <option value="monthly" style="background:#0B1F3A;">Monthly Management — $150+/mo</option>
+            <option value="unsure" style="background:#0B1F3A;">Not sure yet</option>
+          </select>
+        </div>
+        <div style="margin-bottom:20px;">
+          <label style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:6px;">Tell Me About Your Business</label>
+          <textarea name="message" placeholder="What do you do, where are you located, what do you need?" style="width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:white;font-family:var(--body);font-size:14px;padding:12px 16px;border-radius:6px;outline:none;min-height:100px;resize:vertical;"></textarea>
+        </div>
+        <button type="submit" id="submitBtn" style="width:100%;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-family:var(--body);font-size:14px;font-weight:700;padding:15px;border-radius:6px;transition:all 0.2s;letter-spacing:0.3px;">Get Started Today →</button>
+        <div id="formOk" style="display:none;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);color:white;padding:16px;border-radius:6px;margin-top:12px;font-size:14px;">✓ Got it — I'll be in touch today. Talk soon.</div>
+      </form>
+    </div>
+    <div class="cta-phone">Or email: launchlocaltx@gmail.com</div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="fb-logo">Launch<span>Local</span></div>
+      <div class="fb-tag">Your Business, Built Right.</div>
+      <p class="fb-desc">One-stop business launch service for small businesses in East Texas. Websites, Google Business, logos, and more — delivered in 5–7 days.</p>
+    </div>
+    <div class="fc">
+      <h4>Packages</h4>
+      <ul>
+        <li><a href="#packages">Starter — $300</a></li>
+        <li><a href="#packages">Foundation — $800</a></li>
+        <li><a href="#packages">Full Launch — $1,300</a></li>
+        <li><a href="#packages">Monthly — $150+/mo</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#contact">Get Started</a></li>
+        <li><a href="mailto:launchlocaltx@gmail.com">launchlocaltx@gmail.com</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#portfolio">Our Work</a></li>
+        <li><a href="https://dolentebrothers.com" target="_blank">Dolente Brothers →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 Launch Local TX · East Texas · Your Business, Built Right.</span>
+    <span>Serving Van Zandt County & Beyond</span>
+  </div>
+</footer>
+
+<script>
+function openMenu(){document.getElementById('mobMenu').classList.add('open');document.body.style.overflow='hidden';}
+function closeMenu(){document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow='';}
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target);}});},{threshold:0.08});
+document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  const ok=document.getElementById('formOk');
+  btn.disabled=true;
+  btn.textContent='Sending...';
+  fetch('https://formspree.io/f/xbdqerkr',{
+    method:'POST',
+    body:new FormData(this),
+    headers:{'Accept':'application/json'}
+  }).then(function(res){
+    if(res.ok){btn.style.display='none';ok.style.display='block';document.getElementById('contactForm').reset();}
+    else{btn.disabled=false;btn.textContent='Get Started Today →';alert('Something went wrong. Email us at launchlocaltx@gmail.com');}
+  }).catch(function(){btn.disabled=false;btn.textContent='Get Started Today →';alert('Something went wrong. Email us at launchlocaltx@gmail.com');});
+});
+</script>
+</body>
+</html>
